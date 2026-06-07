@@ -1,0 +1,454 @@
+/* ============================================================
+   categorie.css — RoyalTime
+   Adapté aux variables et classes de style.css
+   Couleurs : #0B1F3A (navy), #D4B872 (gold), #F3EFE8 (fond)
+   Police   : 'Finlandica Headline', Roboto, Cormorant Garamond
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Finlandica+Headline:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+/* ── RESET ────────────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Roboto', 'Inter', system-ui, sans-serif;
+    background: #F3EFE8;
+    color: #0B1F3A;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAVBAR (.navbar — structure propre à categorie2.html) ── */
+nav{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0B1F3A;
+    padding: 2em;
+}
+.nav-left,
+.nav-right{
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+ul li {
+    color: white;
+    padding: 0 1rem;
+    cursor: pointer;
+    font-family: 'Finlandica Headline', sans-serif;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.35s ease, transform 0.25s ease;
+}
+ul li{font-size:1rem}
+
+/* Modern hover underline + sheen effect */
+ul li::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 8px;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg, #D4B872 0%, #FFD27A 100%);
+    border-radius: 3px;
+    transition: transform 0.35s cubic-bezier(.2,.8,.2,1);
+}
+
+ul li:hover::after{
+    transform: translateX(-50%) scaleX(1);
+}
+
+
+ul li::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -110%;
+    width: 80%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(212,184,114,0.06) 0%, rgba(212,184,114,0.12) 50%, rgba(212,184,114,0.06) 100%);
+    transform: skewX(-15deg);
+    transition: left 0.45s cubic-bezier(.2,.8,.2,1);
+    pointer-events: none;
+}
+
+ul li:hover::before{
+    left: 130%;
+}
+
+ul li:hover{
+    color: #D4B872;
+    transform: translateY(-4px);
+}
+
+/* Focus (keyboard) accessibility */
+ul li:focus{
+    outline: none;
+    color: #D4B872;
+}
+#logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+#logo img {
+    display: block;
+    max-height: 90px;
+    width: auto;
+}
+
+/* Nav actions (cart + burger) placed at the right */
+.nav-actions{
+    display:flex;
+    align-items:center;
+    gap:0.75rem;
+    margin-left:0; /* keep nav-actions next to nav-right */
+    z-index:2;
+}
+
+.search-link{display:inline-flex;align-items:center;justify-content:center;padding:6px;border-radius:8px;background:#0B1F3A;box-shadow:0 8px 24px rgba(9,24,40,0.06);width:40px;height:40px}
+.search-link svg{display:block}
+.search-link:hover{transform:translateY(-3px);box-shadow:0 18px 50px rgba(9,24,40,0.12);border-color:rgba(212,184,114,0.26)}
+.search-link{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.nav-actions .burger{order:1}
+.nav-actions .cart-link{order:2}
+.nav-actions .cart-link{margin-left:6px}
+.nav-left{margin-right:auto}
+.site-nav a{color:inherit;text-decoration:none}
+.nav-right{display:flex;gap:1.5rem;align-items:center}
+.cart-link{display:inline-flex;align-items:center;justify-content:center;padding:6px;border-radius:6px;color:#D4B872}
+.cart-link svg{display:block}
+.burger{display:none;background:transparent;border:none;padding:6px;border-radius:6px;cursor:pointer}
+.burger svg{display:block}
+
+/* Mobile menu (slide-in) */
+.mobile-menu{
+    position:fixed;
+    top:0;
+    right:0;
+    height:100vh;
+    width:280px;
+    background:#0b1f3aa3;
+    transform:translateX(110%);
+    transition:transform .28s cubic-bezier(.2,.8,.2,1);
+    padding:4.5rem 1.25rem 1.25rem 1.25rem;
+    box-shadow:-12px 0 40px rgba(2,19,38,0.3);
+    z-index:40;
+}
+.mobile-menu .mobile-close{
+    position:absolute;
+    top:14px;
+    right:14px;
+    background:transparent;
+    border:none;
+    padding:6px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    color:#D4B872;
+}
+.mobile-menu .mobile-close svg{display:block}
+.mobile-menu ul{list-style:none;padding:1.25rem 0 0 0;margin:0;display:flex;flex-direction:column;gap:1rem}
+.mobile-menu a{color:#fff;text-decoration:none;font-size:1.1rem;padding:0.5rem 0;display:block}
+
+/* Hover / focus states for mobile menu links */
+.mobile-menu a{transition: color .18s ease, background .18s ease, transform .18s ease, padding-left .18s ease}
+.mobile-menu a:hover,
+.mobile-menu a:focus{
+    color: #0B1F3A;
+    background: linear-gradient(90deg, rgba(212,184,114,0.12), rgba(212,184,114,0.06));
+    padding-left: 0.6rem;
+    border-radius: 6px;
+    transform: translateX(-2px);
+}
+.mobile-menu a:focus{outline: 2px solid rgba(212,184,114,0.18);outline-offset:2px}
+.mobile-menu.open{transform:translateX(0%)}
+.mobile-menu ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:1rem}
+.mobile-menu a{color:#fff;text-decoration:none;font-size:1.1rem;padding:0.5rem 0;display:block}
+
+/* Hide default nav lists on small screens and show burger */
+@media (max-width: 880px){
+    .nav-left, .nav-right{display:none}
+    /* show burger and fix it to the left edge */
+    .burger{display:inline-flex; position:absolute; left:14px; top:50%; transform:translateY(-50%); z-index:4}
+    /* keep action icons grouped on the right */
+    .nav-actions{position:relative; width:100%; padding:0 1rem; display:flex; justify-content:flex-end; align-items:center; gap:0.5rem}
+    .nav-actions .search-link, .nav-actions .cart-link{margin-left:0.5rem}
+}
+
+/* Ensure the logo remains centered while actions sit right */
+@media (max-width:420px){
+    #logo img{max-height:72px}
+    .mobile-menu{width:86vw}
+}
+
+#logo h2{
+    display: none;
+}
+/* ── HERO ─────────────────────────────────────────────────── */
+.hero-category {
+    height: 55vh;
+    background:
+        linear-gradient(rgba(11,31,58,0.65), rgba(11,31,58,0.65)),
+        url('../image/home_categorie.png') center / cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    flex-direction: column;
+    gap: 1rem;
+}
+.hero-category h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 4px 20px rgba(212,184,114,0.4);
+    letter-spacing: 3px;
+}
+.hero-category p {
+    color: #D4B872;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-size: .85rem;
+    font-family: 'Finlandica Headline', sans-serif;
+}
+
+/* ── SECTION TITRE ────────────────────────────────────────── */
+.categories-page {
+    padding: 5rem 4rem;
+}
+.title {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+.title span {
+    color: #D4B872;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-size: .85rem;
+    font-family: 'Finlandica Headline', sans-serif;
+    font-weight: 600;
+    display: block;
+    margin-bottom: .6rem;
+}
+.title h2 {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-family: 'Cormorant Garamond', serif;
+    color: #0B1F3A;
+    font-weight: 700;
+}
+
+/* ── GRILLE CATÉGORIES ────────────────────────────────────── */
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+.category-box {
+    height: 340px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 8px 30px rgba(2,19,38,0.1);
+    transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s ease;
+    cursor: pointer;
+    border: 1px solid rgba(11,31,58,0.06);
+}
+.category-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 22px 60px rgba(2,19,38,0.18);
+}
+.category-box img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform .5s ease;
+    display: block;
+}
+.category-box:hover img { transform: scale(1.08); }
+.category-content {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(11,31,58,0.85) 0%, rgba(11,31,58,0.1) 60%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    gap: .4rem;
+}
+.category-content h2 {
+    color: #fff;
+    font-size: 2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+/* Petit trait doré sous le titre de catégorie */
+.category-content::after {
+    content: "";
+    display: block;
+    width: 40px; height: 2px;
+    background: #D4B872;
+    border-radius: 2px;
+}
+
+/* ── SECTION PRODUITS ─────────────────────────────────────── */
+.produits-section {
+    padding: 3rem 4rem;
+    background: #fff;
+    min-height: 10px;
+}
+.produits {
+    display: none;
+}
+.produits.active {
+    display: block;
+}
+.produits > h2 {
+    font-family: 'Finlandica Headline', sans-serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: #0B1F3A;
+    margin-bottom: 1.75rem;
+    padding-bottom: .75rem;
+    border-bottom: 2px solid rgba(212,184,114,0.25);
+    letter-spacing: .5px;
+}
+
+/* ── GRILLE MONTRES (.montres-grid .montre) ───────────────── */
+.montres-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.75rem;
+    margin-top: 1.5rem;
+}
+.montre {
+    background: #fff;
+    padding: 1.1rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(2,19,38,0.06);
+    border: 1px solid rgba(11,31,58,0.06);
+    cursor: pointer;
+    transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease;
+    position: relative;
+    overflow: hidden;
+}
+.montre::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(212,184,114,0.04), rgba(212,184,114,0.01));
+    opacity: 0;
+    transition: opacity .35s ease;
+    pointer-events: none;
+}
+.montre:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 50px rgba(2,19,38,0.12);
+}
+.montre:hover::after { opacity: 1; }
+.montre img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: .85rem;
+    display: block;
+    transition: transform .5s ease;
+}
+.montre:hover img { transform: scale(1.04); }
+.montre h3 {
+    margin: .5rem 0 .3rem;
+    font-family: 'Finlandica Headline', sans-serif;
+    color: #0B1F3A;
+    font-size: 1rem;
+    font-weight: 700;
+}
+.montre p {
+    color: #D4B872;
+    font-weight: 700;
+    font-size: .95rem;
+    margin-bottom: .5rem;
+}
+
+/* Badge optionnel */
+.montre span[style*="D4B872"] {
+    font-family: 'Finlandica Headline', sans-serif;
+}
+
+/* Bouton Ajouter au panier (injecté par categoriejs.js) */
+.montre button {
+    width: 100%;
+    margin-top: .6rem;
+    background: #0B1F3A;
+    color: #D4B872;
+    border: none;
+    padding: .65rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Finlandica Headline', sans-serif;
+    font-size: .9rem;
+    letter-spacing: .4px;
+    transition: background .2s ease, color .2s ease, transform .18s ease;
+}
+.montre button:hover {
+    background: #D4B872;
+    color: #0B1F3A;
+    transform: translateY(-2px);
+}
+
+/* ── FOOTER ───────────────────────────────────────────────── */
+footer {
+    background: #071830;
+    color: #fff;
+    text-align: center;
+    padding: 3rem 1rem;
+    margin-top: 0;
+}
+footer h2 {
+    color: #D4B872;
+    font-size: 2rem;
+    margin-bottom: .5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+}
+footer p {
+    color: rgba(255,255,255,0.7);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+}
+
+/* ── RESPONSIVE ───────────────────────────────────────────── */
+@media (max-width: 1024px) {
+    .categories-page { padding: 4rem 2.5rem; }
+    .produits-section { padding: 2.5rem 2.5rem; }
+}
+@media (max-width: 768px) {
+    .navbar { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero-category { height: 45vh; }
+    .hero-category h1 { font-size: 2.5rem; }
+    .categories-page { padding: 3rem 1.25rem; }
+    .produits-section { padding: 2rem 1.25rem; }
+    .title h2 { font-size: 2rem; }
+    .category-box { height: 260px; }
+    .category-content h2 { font-size: 1.5rem; }
+}
+@media (max-width: 480px) {
+    .categories-grid { grid-template-columns: 1fr; }
+    .montres-grid { grid-template-columns: 1fr; }
+    .hero-category h1 { font-size: 2rem; }
+    .navbar { flex-wrap: wrap; gap: .75rem; }
+    .icons { font-size: 1rem; }
+}

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Connexion — RoyalTime</title>
+  <link rel="icon" href="../image/Gemini_Generated_Image_skhy5wskhy5wskhy-removebg-preview.png">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <main class="auth-shell">
+    <header class="auth-header">
+      <a href="../home-page/index.html" class="brand">
+        <img src="../image/Gemini_Generated_Image_skhy5wskhy5wskhy-removebg-preview.png" alt="RoyalTime" class="brand-logo">
+      </a>
+    </header>
+
+    <section class="auth-card" aria-labelledby="login-title">
+      <h1 id="login-title">Se connecter</h1>
+      <p class="sub">Accédez à votre compte RoyalTime</p>
+
+      <form id="loginForm" novalidate>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required>
+        <div class="field-error" id="emailError" aria-live="polite"></div>
+
+        <label for="password">Mot de passe</label>
+        <div class="password-row">
+          <input id="password" name="password" type="password" autocomplete="current-password" required minlength="8">
+          <button type="button" class="pw-toggle" aria-label="Afficher le mot de passe">👁</button>
+        </div>
+        <meter id="pwStrength" min="0" max="4" value="0"></meter>
+        <div class="field-error" id="passwordError" aria-live="polite"></div>
+
+        <div class="row between">
+          <label class="remember"><input type="checkbox" id="remember"> Se souvenir de moi</label>
+          <a href="#" class="forgot">Mot de passe oublié?</a>
+        </div>
+
+        <button class="btn-primary" id="submitBtn" type="submit">Se connecter</button>
+      </form>
+
+      <div class="or">ou</div>
+      <div class="socials">
+        <button class="btn-ghost" data-provider="apple">Continuer avec Apple</button>
+        <button class="btn-ghost" data-provider="google">Continuer avec Google</button>
+      </div>
+
+      <section class="demo-accounts" aria-label="Comptes de démonstration">
+        <h3>Comptes de démonstration</h3>
+        <p class="muted">Utilisez ces comptes pour tester rapidement l'expérience.</p>
+        <ul id="demoList" class="demo-list" aria-live="polite"></ul>
+      </section>
+    </section>
+
+    <footer class="auth-footer">
+      <p>Pas encore de compte ? <a href="signup.html">S'inscrire</a></p>
+    </footer>
+  </main>
+
+  <script src="login.js"></script>
+  <script src="../panier/panier.js"></script>
+</body>
+</html>

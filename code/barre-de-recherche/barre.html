@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Recherche</title>
+    <link rel="stylesheet" href="./barre.css">
+    
+</head>
+<body>
+  <nav class="site-nav">
+  <ul class="nav-left">
+    <li><a href="../home-page/index.html">Home</a></li>
+    <li><a href="../Categorie/categorie2.html">Collection</a></li>
+  </ul>
+
+  <div id="logo">
+    <a href="../home-page/index.html">
+      <img src="../image/Gemini_Generated_Image_skhy5wskhy5wskhy-removebg-preview.png" alt="Logo">
+    </a>
+  </div>
+
+  <ul class="nav-right">
+    <li><a href="../allwatches/allwatches.html">All Watches</a></li>
+    <li><a href="../about/about.html">About</a></li>
+  </ul>
+
+  <div class="nav-actions">
+    <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+      <svg width="26" height="16" viewBox="0 0 26 16" fill="none" aria-hidden="true">
+        <rect y="0" width="26" height="2" rx="1" fill="#D4B872"/>
+        <rect y="7" width="26" height="2" rx="1" fill="#D4B872"/>
+        <rect y="14" width="26" height="2" rx="1" fill="#D4B872"/>
+      </svg>
+    </button>
+
+    <div class="recherche">
+      <a href="../barre-de-recherche/barre.html" class="search-link" aria-label="Recherche">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="11" cy="11" r="6" stroke="#D4B872" stroke-width="1.6" fill="none"/>
+          <path d="M20 20l-3.6-3.6" stroke="#D4B872" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <a href="../panier/panier.html" class="cart-link" aria-label="Panier" style="position:relative">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M6 6h15l-1.5 9h-11L6 6z" stroke="#D4B872" stroke-width="1.2" stroke-linejoin="round" fill="none"/>
+        <circle cx="10" cy="20" r="1" fill="#D4B872"/>
+        <circle cx="18" cy="20" r="1" fill="#D4B872"/>
+      </svg>
+      <span class="cart-count" aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <button class="mobile-close" aria-label="Fermer le menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M6 6L18 18" stroke="#D4B872" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M6 18L18 6" stroke="#D4B872" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <ul>
+      <li><a href="../home-page/index.html">Home</a></li>
+      <li><a href="../Categorie/categorie2.html">Collection</a></li>
+      <li><a href="../Categorie/categorie2.html">All Watches</a></li>
+      <li><a href="../about/about.html">About</a></li>
+      <li><a href="../barre-de-recherche/barre.html">Recherche</a></li>
+      <li><a href="../panier/panier.html">Panier</a></li>
+    </ul>
+  </div>
+</nav>
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <b>Luxury Timepieces</b>
+        <p>
+          Découvrez une collection exclusive de montres de luxe conçues avec
+          élégance, précision et raffinement pour les passionnés d’horlogerie
+          haut de gamme.
+        </p>
+      </div>
+    </section>
+    <!-- SHOP -->
+
+    <section class="section" id="shop">
+      <div class="section-title">
+      </div>
+
+
+<h1>Recherche de montres</h1>
+
+<input type="text" id="searchInput" placeholder="TAPEZ UNE CATEGORIE...?'">
+
+<div id="resultats">
+
+  
+</div>
+
+<script src="../javascript/products.js"></script>
+<script src="../javascript/main.js"></script>
+<script src="./barrejs.js"></script>
+
+</body>
+</html>

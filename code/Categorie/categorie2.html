@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" >
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>RoyalTime Categories</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" >
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin >
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    >
+<link rel="stylesheet" href="categorie.css">
+ 
+</head>
+
+  
+<body>
+    <!-- NAVBAR -->
+
+   <nav class="site-nav">
+            <ul class="nav-left">
+                <li><a href="../home-page/index.html">Home</a></li>
+                <li><a href="../Categorie/categorie2.html">Collection</a></li>
+            </ul>
+
+            <div id="logo"><a href="../home-page/index.html"><img src="../image/Gemini_Generated_Image_skhy5wskhy5wskhy-removebg-preview.png" alt="Logo"></a></div>
+
+            <ul class="nav-right">
+                <li><a href="../allwatches/allwatches.html">All watches</a></li>
+                <li><a href="../about/about.html">About</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+                    <svg width="26" height="16" viewBox="0 0 26 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <rect y="0" width="26" height="2" rx="1" fill="#D4B872"/>
+                        <rect y="7" width="26" height="2" rx="1" fill="#D4B872"/>
+                        <rect y="14" width="26" height="2" rx="1" fill="#D4B872"/>
+                    </svg>
+                </button>
+<div class="recherche">
+                <a href="../barre-de-recherche/barre.html" class="search-link" aria-label="Recherche">
+                    <!-- loupe / loop SVG (gold) -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <circle cx="11" cy="11" r="6" stroke="#D4B872" stroke-width="1.6" fill="none"/>
+                        <path d="M20 20l-3.6-3.6" stroke="#D4B872" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                </div>
+
+                <a href="../paiment-page/paiment.html" class="cart-link" aria-label="Panier">
+                    <!-- cart SVG -->
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M6 6h15l-1.5 9h-11L6 6z" stroke="#D4B872" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+                        <circle cx="10" cy="20" r="1" fill="#D4B872"/>
+                        <circle cx="18" cy="20" r="1" fill="#D4B872"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+                <button class="mobile-close" aria-label="Fermer le menu">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M6 6L18 18" stroke="#D4B872" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M6 18L18 6" stroke="#D4B872" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <ul>
+                    <li><a href="../home-page/index.html">Home</a></li>
+                    <li><a href="../Categorie/categorie2.html">Collection</a></li>
+                    <li><a href="../allwatches/allwatches.html">All Watches</a></li>
+                    <li><a href="../about/about.html">About</a></li>
+                    <li><a href="../barre-de-recherche/barre.html">Recherche</a></li>
+                    <li><a href="../panier/panier.html">Panier</a></li>
+                </ul>
+            </div>
+        </nav>
+
+    <!-- HERO -->
+
+    <section class="hero-category">
+      <div>
+       <h2> </h2>
+      </div>
+    </section>
+
+    <!-- CATEGORIES -->
+      <section class="section" id="collections">
+      <div class="section-title">
+      
+      </div>
+
+    <section class="categories-page" id="collection">
+      <div class="title">
+        <span>Browse Collections</span>
+        <h2>Luxury Categories</h2>
+      </div>
+
+      <div class="categories-grid">
+        <!-- HOMME -->
+
+      
+
+          <div class="category-box" onclick="afficherCategorie('homme')">
+    <img src="../image/pic_homme1.png" alt="daily">
+    <div class="category-content">
+        <h2>homme</h2>
+    </div>
+</div>
+
+        
+        
+
+        <!-- FEMME -->
+
+        <div class="category-box" onclick="afficherCategorie('femme')">
+    <img src="../image/Femme.avif" alt="Femme">
+    <div class="category-content">
+        <h2>Femme</h2>
+    </div>
+</div>
+
+        <!-- CLASSIQUE -->
+
+       <div class="category-box" onclick="afficherCategorie('classique')">
+    <img src="../image/classique.avif" alt="Classique">
+    <div class="category-content">
+        <h2>classique</h2>
+    </div>
+</div>
+
+        <!-- SPORT -->
+
+       <div class="category-box" onclick="afficherCategorie('sport')">
+    <img src="../image/pic_sport1.jpg" alt="Sport">
+    <div class="category-content">
+        <h2>Sport</h2>
+    </div>
+</div>
+
+        <!-- DAILY -->
+
+        
+       <div class="category-box" onclick="afficherCategorie('daily')">
+    <img src="../image/daily.avif" alt="daily">
+    <div class="category-content">
+        <h2>Daily</h2>
+    </div>
+</div>
+        <!-- MECANIQUE -->
+
+       
+       <div class="category-box" onclick="afficherCategorie('mecanique')">
+    <img src="../image/mecanique.png" alt="mecanique">
+    <div class="category-content">
+        <h2>mecanique</h2>
+    </div>
+</div>
+    </section>
+
+    <section id="produits" class="produits-section">
+
+        <!--HOMME-->
+
+    <div id="homme" class="produits">
+        <h2>Montres Homme</h2>
+        <div class="montres-grid"></div>
+    </div>
+   
+    <!--FEMME-->
+
+    <div id="femme" class="produits">
+        <h2>Montres Femme</h2>
+        <div class="montres-grid"></div>
+    </div>
+      <!--CLASSIQUE-->
+
+    <div id="classique" class="produits">
+        <h2>Montres Classique</h2>
+        <div class="montres-grid"></div>
+    </div>
+    
+   
+    <!--SPORT-->
+
+    <div id="sport" class="produits">
+        <h2>Montres Sport</h2>
+        <div class="montres-grid"></div>
+    </div>
+    <!--DAILY-->
+
+    <div id="daily" class="produits">
+        <h2>Montres Daily</h2>
+        <div class="montres-grid"></div>
+    </div>
+    <!--MECANIQUE-->
+
+    <div id="mecanique" class="produits">
+        <h2>Montres Mecanique</h2>
+        <div class="montres-grid"></div>
+    </div>
+    
+
+</section>
+
+    <!-- FOOTER -->
+
+    <footer>
+      <h2>RoyalTime</h2>
+
+      <p>Luxury Watches Experience © 2026</p>
+    </footer>
+        <script src="../javascript/products.js"></script>
+        <script src="./categoriejs.js" ></script>
+        <script src="../javascript/main.js"></script>
+  </body>
+</html>

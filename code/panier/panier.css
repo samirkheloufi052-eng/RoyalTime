@@ -1,0 +1,379 @@
+/* ============================================================
+   panier.css — RoyalTime
+   Adapté aux variables et classes de style.css
+   Couleurs : #0B1F3A (navy), #D4B872 (gold), #F3EFE8 (fond)
+   Police   : 'Finlandica Headline', Roboto
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Finlandica+Headline:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* ── RESET & BASE ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; padding: 0; }
+body {
+    font-family: 'Roboto', system-ui, Arial, sans-serif;
+    background: #F3EFE8;
+    color: #0B1F3A;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ── CONTAINER ────────────────────────────────────────────── */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
+
+/* ── NAVBAR (identique à style.css) ──────────────────────── */
+nav.site-nav {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0B1F3A;
+    padding: 2em;
+}
+.nav-left,
+.nav-right {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+nav.site-nav ul li {
+    color: white;
+    padding: 0 1rem;
+    cursor: pointer;
+    font-family: 'Finlandica Headline', sans-serif;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.35s ease, transform 0.25s ease;
+    font-size: 1rem;
+}
+nav.site-nav ul li::after {
+    content: "";
+    position: absolute;
+    left: 50%; bottom: 8px;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    width: 60%; height: 3px;
+    background: linear-gradient(90deg, #D4B872 0%, #FFD27A 100%);
+    border-radius: 3px;
+    transition: transform 0.35s cubic-bezier(.2,.8,.2,1);
+}
+nav.site-nav ul li:hover::after { transform: translateX(-50%) scaleX(1); }
+nav.site-nav ul li::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -110%;
+    width: 80%; height: 100%;
+    background: linear-gradient(90deg, rgba(212,184,114,0.06) 0%, rgba(212,184,114,0.12) 50%, rgba(212,184,114,0.06) 100%);
+    transform: skewX(-15deg);
+    transition: left 0.45s cubic-bezier(.2,.8,.2,1);
+    pointer-events: none;
+}
+nav.site-nav ul li:hover::before { left: 130%; }
+nav.site-nav ul li:hover { color: #D4B872; transform: translateY(-4px); }
+nav.site-nav ul li:focus { outline: none; color: #D4B872; }
+
+/* Logo centré */
+#logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+#logo img { display: block; max-height: 90px; width: auto; }
+#logo h2 { display: none; }
+
+/* Nav actions */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    z-index: 2;
+}
+.nav-actions .burger { order: 1; }
+.nav-actions .cart-link { order: 2; margin-left: 6px; }
+.nav-left { margin-right: auto; }
+nav.site-nav a { color: inherit; text-decoration: none; }
+.cart-link {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 6px; border-radius: 6px; color: #D4B872; position: relative;
+}
+.cart-link svg { display: block; }
+.burger { display: none; background: transparent; border: none; padding: 6px; border-radius: 6px; cursor: pointer; }
+.burger svg { display: block; }
+.search-link {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 6px; border-radius: 8px; background: #0B1F3A;
+    width: 40px; height: 40px;
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+.search-link svg { display: block; }
+.search-link:hover { transform: translateY(-3px); box-shadow: 0 18px 50px rgba(9,24,40,0.12); }
+
+/* Badge panier */
+.cart-count {
+    position: absolute; top: -8px; right: -8px;
+    background: #D4B872; color: #0B1F3A;
+    font-weight: 700; padding: 2px 6px;
+    border-radius: 999px; font-size: 0.75rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Mobile menu */
+.mobile-menu {
+    position: fixed; top: 0; right: 0;
+    height: 100vh; width: 280px;
+    background: rgba(11,31,58,0.96);
+    transform: translateX(110%);
+    transition: transform .28s cubic-bezier(.2,.8,.2,1);
+    padding: 4.5rem 1.25rem 1.25rem;
+    box-shadow: -12px 0 40px rgba(2,19,38,0.3);
+    z-index: 40;
+}
+.mobile-menu .mobile-close {
+    position: absolute; top: 14px; right: 14px;
+    background: transparent; border: none; padding: 6px;
+    display: inline-flex; align-items: center; justify-content: center;
+    cursor: pointer; color: #D4B872;
+}
+.mobile-menu .mobile-close svg { display: block; }
+.mobile-menu ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1rem; }
+.mobile-menu a {
+    color: #fff; text-decoration: none; font-size: 1.1rem;
+    padding: 0.5rem 0; display: block;
+    transition: color .18s ease, padding-left .18s ease;
+}
+.mobile-menu a:hover,
+.mobile-menu a:focus {
+    color: #D4B872;
+    padding-left: 0.6rem;
+}
+.mobile-menu.open { transform: translateX(0); }
+
+/* Responsive nav */
+@media (max-width: 880px) {
+    .nav-left, .nav-right { display: none; }
+    .burger { display: inline-flex; position: absolute; left: 14px; top: 50%; transform: translateY(-50%); z-index: 4; }
+    .nav-actions { position: relative; width: 100%; padding: 0 1rem; display: flex; justify-content: flex-end; align-items: center; gap: 0.5rem; }
+}
+@media (max-width: 420px) {
+    #logo img { max-height: 72px; }
+    .mobile-menu { width: 86vw; }
+}
+
+/* ── PAGE PANIER ──────────────────────────────────────────── */
+.cart-page {
+    padding: 3rem 1rem;
+    min-height: 70vh;
+}
+.cart-page h1 {
+    font-family: 'Finlandica Headline', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    color: #0B1F3A;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+}
+
+/* Grille panier */
+.cart-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 2rem;
+    align-items: start;
+}
+
+/* Liste articles */
+.cart-list {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(2,19,38,0.06);
+    border: 1px solid rgba(11,31,58,0.06);
+}
+.cart-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(11,31,58,0.06);
+    align-items: center;
+}
+.cart-item:last-child { border-bottom: none; }
+.cart-item .media img {
+    width: 110px; height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+.cart-item .meta { flex: 1; }
+.cart-item .meta h4 {
+    margin: 0 0 .35rem;
+    font-family: 'Finlandica Headline', sans-serif;
+    color: #0B1F3A;
+    font-size: 1rem;
+}
+.cart-item .price {
+    color: #D4B872;
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-bottom: .35rem;
+}
+.cart-item .qty { color: rgba(11,31,58,0.7); font-size: .9rem; margin-bottom: .35rem; }
+.cart-item .qty-input {
+    width: 64px; padding: 5px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(11,31,58,0.12);
+    font-size: .9rem; color: #0B1F3A;
+    font-family: 'Roboto', sans-serif;
+}
+.cart-item .remove {
+    background: transparent;
+    border: 1px solid rgba(11,31,58,0.1);
+    padding: 5px 10px; border-radius: 8px;
+    color: #0B1F3A; cursor: pointer;
+    font-size: .85rem;
+    transition: background .18s ease, color .18s ease;
+}
+.cart-item .remove:hover { background: #0B1F3A; color: #D4B872; }
+
+/* État vide */
+.empty {
+    padding: 4rem 1rem;
+    text-align: center;
+    color: rgba(11,31,58,0.5);
+    font-size: 1.05rem;
+}
+
+/* Récapitulatif */
+.cart-summary .summary-card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(2,19,38,0.06);
+    border: 1px solid rgba(11,31,58,0.06);
+}
+.cart-summary h3 {
+    font-family: 'Finlandica Headline', sans-serif;
+    color: #0B1F3A;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    letter-spacing: .5px;
+}
+.fiche-breadcrumb {
+    background: rgb(244, 243, 242);
+
+}
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem 0;
+    border-bottom: 1px solid rgba(11,31,58,0.05);
+    font-size: .95rem;
+    color: rgba(11,31,58,0.8);
+}
+.summary-row:last-of-type { border-bottom: none; }
+.summary-row.total {
+    font-size: 1.1rem;
+    color: #0B1F3A;
+    padding-top: .75rem;
+    margin-top: .25rem;
+    border-top: 2px solid rgba(11,31,58,0.08);
+}
+
+/* Boutons */
+.btn-primary {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: #D4B872;
+    color: #0B1F3A;
+    padding: .85rem 1.25rem;
+    border-radius: 8px;
+    border: none;
+    font-weight: 700;
+    font-family: 'Finlandica Headline', sans-serif;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background .2s ease, transform .18s ease, box-shadow .18s ease;
+    letter-spacing: .5px;
+}
+.btn-primary:hover {
+    background: #e7cf98;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(212,184,114,0.25);
+}
+.btn-secondary {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: transparent;
+    border: 1.5px solid rgba(11,31,58,0.15);
+    padding: .7rem 1rem;
+    border-radius: 8px;
+    color: rgba(11,31,58,0.7);
+    font-family: 'Roboto', sans-serif;
+    font-size: .9rem;
+    cursor: pointer;
+    transition: border-color .18s ease, color .18s ease;
+}
+.btn-secondary:hover { border-color: #0B1F3A; color: #0B1F3A; }
+
+/* ── FOOTER (identique à style.css) ──────────────────────── */
+.site-footer { background: #071830; color: #fff; padding: 3rem 1rem; margin-top: 0; }
+.site-footer .footer-top {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 2rem; align-items: start;
+    max-width: 1100px; margin: 0 auto;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.footer-brand .footer-logo { height: 60px; display: block; margin-bottom: .6rem; }
+.brand-note { color: rgba(255,255,255,0.8); font-size: .95rem; }
+.footer-nav { display: flex; gap: 2rem; }
+.footer-nav h4 { color: #D4B872; margin-bottom: .6rem; }
+.footer-nav ul { list-style: none; padding: 0; margin: 0; }
+.footer-nav li { margin-bottom: .45rem; }
+.footer-nav a { color: rgba(255,255,255,0.85); text-decoration: none; }
+.footer-contact h4 { color: #D4B872; margin-bottom: .6rem; }
+.footer-contact p { margin: 0 0 .45rem; color: rgba(255,255,255,0.85); }
+.socials a { margin-right: .5rem; display: inline-block; }
+.footer-bottom {
+    max-width: 1100px; margin: 1rem auto 0;
+    display: flex; justify-content: space-between; align-items: center;
+    color: rgba(255,255,255,0.6); font-size: .95rem;
+}
+.footer-bottom a { color: rgba(255,255,255,0.75); text-decoration: none; }
+
+/* ── TOASTS ───────────────────────────────────────────────── */
+#rt-toast-container {
+    position: fixed; right: 1rem; bottom: 1rem; z-index: 9999;
+    display: flex; flex-direction: column; gap: .5rem; align-items: flex-end;
+}
+.rt-toast {
+    background: #0B1F3A;
+    color: #D4B872;
+    padding: .65rem 1rem; border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(2,8,23,0.3);
+    opacity: 0; transform: translateY(8px);
+    transition: opacity .28s ease, transform .28s ease;
+    font-weight: 600; font-family: 'Finlandica Headline', sans-serif;
+    border-left: 3px solid #D4B872;
+}
+.rt-toast.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ───────────────────────────────────────────── */
+@media (max-width: 900px) {
+    .site-footer .footer-top { grid-template-columns: 1fr; gap: 1rem; }
+    .footer-nav { flex-wrap: wrap; }
+    .footer-bottom { flex-direction: column; gap: .6rem; }
+}
+@media (max-width: 880px) {
+    .cart-grid { grid-template-columns: 1fr; }
+    .cart-page h1 { text-align: center; }
+}
+@media (max-width: 480px) {
+    .cart-item { flex-direction: column; align-items: flex-start; }
+    .cart-item .media img { width: 100%; height: 160px; }
+}

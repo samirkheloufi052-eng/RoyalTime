@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>S'inscrire — RoyalTime</title>
+  <link rel="stylesheet" href="signup.css">
+  <link rel="icon" href="../image/Gemini_Generated_Image_skhy5wskhy5wskhy-removebg-preview.png">
+</head>
+<body>
+  <main class="auth-shell">
+    <section class="auth-card" aria-labelledby="signup-title">
+      <h1 id="signup-title">Créer un compte</h1>
+      <p class="sub">Rejoignez RoyalTime — expérience premium.</p>
+
+      <form id="signupForm" novalidate>
+        <label for="name">Nom complet</label>
+        <input id="name" name="name" type="text" required minlength="2">
+        <div class="field-error" id="nameError" aria-live="polite"></div>
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required>
+        <div class="field-error" id="emailError" aria-live="polite"></div>
+
+        <label for="password">Mot de passe</label>
+        <div class="password-row">
+          <input id="password" name="password" type="password" required minlength="8">
+          <button type="button" class="pw-toggle" aria-label="Afficher le mot de passe">👁</button>
+        </div>
+        <meter id="pwStrength" min="0" max="4" value="0"></meter>
+        <div class="field-error" id="passwordError" aria-live="polite"></div>
+
+        <label for="confirm">Confirmer le mot de passe</label>
+        <input id="confirm" name="confirm" type="password" required minlength="8">
+        <div class="field-error" id="confirmError" aria-live="polite"></div>
+
+        <label class="terms"><input id="terms" type="checkbox"> J'accepte les <a href="#">conditions</a></label>
+        <div class="field-error" id="termsError" aria-live="polite"></div>
+
+        <button class="btn-primary" id="signupBtn" type="submit">S'inscrire</button>
+      </form>
+
+      <div class="or">ou</div>
+      <div class="socials">
+        <button class="btn-ghost" data-provider="apple">S'inscrire avec Apple</button>
+        <button class="btn-ghost" data-provider="google">S'inscrire avec Google</button>
+      </div>
+
+      <p class="auth-footer">Déjà inscrit ? <a href="login.html">Se connecter</a></p>
+    </section>
+  </main>
+
+  <script src="signup.js"></script>
+  <script src="../panier/panier.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+/* Login page - luxe minimal (mobile-first) */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;600;700&display=swap');
+:root{--lux-navy:#051026;--lux-gold:#C9A84A;--muted:#9aa2aa;--card:#ffffff;--glass:rgba(255,255,255,0.06)}
+*{box-sizing:border-box}
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=Inter:wght@300;400;600;700&display=swap');
+:root{--lux-navy:#051026;--lux-gold:#C9A84A;--muted:#9aa2aa;--card:#ffffff;--glass:rgba(255,255,255,0.06)}
+html,body{height:100%;margin:0;padding:0;background:linear-gradient(180deg,#f6f5f3 0%, #f3efe8 100%);font-family:Inter,system-ui,Arial;color:var(--lux-navy)}
+.auth-shell{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem}
+.auth-header{position:fixed;top:18px;left:18px;right:18px;display:flex;justify-content:center;pointer-events:none}
+.brand{pointer-events:auto}
+.brand-logo{height:44px;display:block}
+
+.auth-card{width:100%;max-width:420px;background:linear-gradient(180deg,rgba(255,255,255,0.98),#fff);border-radius:14px;padding:1.25rem;box-shadow:0 20px 60px rgba(2,8,23,0.06);text-align:center}
+.auth-card h1{font-family:'Space Grotesk',Inter,system-ui,Arial;margin:0;font-size:1.45rem}
+.auth-card .sub{color:var(--muted);margin-top:0.35rem;margin-bottom:1rem}
+
+form{display:block;text-align:left}
+label{display:block;font-weight:600;margin-top:0.75rem;font-size:0.9rem}
+.pw-toggle{background:transparent;border:none;padding:0 8px;cursor:pointer;font-size:1rem}
+input[type="email"],input[type="password"]{width:100%;padding:0.85rem;border-radius:10px;border:1px solid rgba(5,16,38,0.06);margin-top:0.4rem;font-size:1rem;transition:box-shadow .14s ease,border-color .14s ease}
+input[type="email"]:hover,input[type="password"]:hover{border-color:rgba(5,16,38,0.12)}
+input[type="email"]:focus,input[type="password"]:focus{border-color:var(--lux-gold);box-shadow:0 8px 24px rgba(201,168,74,0.08)}
+.field-error{min-height:1.1rem;color:#b00020;font-size:0.9rem;margin-top:0.35rem}
+.password-row{display:flex;gap:0.5rem;align-items:center}
+.pw-toggle{background:transparent;border:none;padding:0 8px;cursor:pointer;font-size:1rem}
+meter{width:100%;height:6px;margin-top:0.5rem}
+
+.row.between{display:flex;justify-content:space-between;align-items:center;margin-top:0.6rem}
+.remember input{margin-right:0.45rem}
+.forgot{color:var(--lux-navy);opacity:0.75;text-decoration:none}
+
+.btn-primary{display:inline-block;width:100%;background:linear-gradient(180deg,var(--lux-gold),#b99638);color:var(--lux-navy);padding:0.95rem;border-radius:10px;border:none;font-weight:700;margin-top:1rem;transition:transform .18s ease,box-shadow .18s ease,opacity .12s}
+.btn-primary:not(:disabled){cursor:pointer}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(201,168,74,0.18)}
+.btn-primary:active{transform:translateY(1px)}
+.btn-ghost{display:inline-block;width:100%;padding:0.7rem;border-radius:10px;border:1px solid rgba(2,8,23,0.06);background:transparent;margin-top:0.5rem;transition:background .15s ease,transform .12s ease,box-shadow .12s ease}
+.btn-ghost:hover{background:linear-gradient(90deg,rgba(201,168,74,0.06),rgba(201,168,74,0.02));transform:translateY(-2px);box-shadow:0 8px 24px rgba(2,8,23,0.06)}
+.btn-ghost{cursor:pointer}
+.or{margin-top:1rem;color:var(--muted);text-align:center}
+.socials{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin-top:0.6rem}
+
+.auth-footer{margin-top:1rem;color:var(--muted);font-size:0.95rem;text-align:center}
+
+/* Desktop refinements */
+@media(min-width:880px){
+  .auth-card{padding:2rem;max-width:520px}
+  .brand-logo{height:56px}
+  .auth-card h1{font-size:1.8rem}
+}
+
+/* focus states */
+input:focus{outline:3px solid rgba(201,168,74,0.12);outline-offset:2px}
+button:focus{outline:3px solid rgba(201,168,74,0.12);outline-offset:2px}
+
+/* link and brand hover */
+a{color:inherit}
+a:hover{color:var(--lux-gold);text-decoration:none}
+.brand-logo{transition:transform .18s ease,filter .18s ease}
+.brand-logo:hover{transform:scale(1.04);filter:brightness(1.02)}
+
+@media(min-width:880px){
+  .auth-card{transition:transform .18s ease,box-shadow .18s ease}
+  .auth-card:hover{transform:translateY(-6px);box-shadow:0 28px 80px rgba(2,8,23,0.08)}
+}
+
+/* Demo accounts list */
+.demo-accounts{margin-top:1rem;text-align:left;padding:0.8rem;border-radius:10px;background:linear-gradient(180deg,rgba(2,8,23,0.02),rgba(2,8,23,0.01));border:1px solid rgba(2,8,23,0.03)}
+.demo-accounts h3{margin:0 0 6px;font-size:1rem}
+.demo-accounts .muted{color:var(--muted);margin:0 0 8px}
+.demo-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.demo-item{display:flex;align-items:center;justify-content:space-between;padding:8px;border-radius:8px;background:transparent}
+.demo-row{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%}
+.demo-name{font-weight:700}
+.demo-email{color:var(--muted);font-size:.95rem}
+.demo-actions{display:flex;gap:8px}
+.demo-fill,.demo-login{background:transparent;border:1px solid rgba(2,8,23,0.06);padding:6px 8px;border-radius:8px;cursor:pointer}
+.demo-login{background:linear-gradient(180deg,var(--lux-gold),#b99638);color:var(--lux-navy);border:none}
+.demo-fill:hover,.demo-login:hover{transform:translateY(-2px)}

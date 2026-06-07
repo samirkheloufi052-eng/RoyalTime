@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Déconnexion — RoyalTime</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <main class="auth-shell">
+    <section class="auth-card" aria-live="polite">
+      <h1>Vous êtes déconnecté</h1>
+      <p class="sub">Merci d'avoir visité RoyalTime. Vous allez être redirigé vers la page de connexion.</p>
+      <p style="margin-top:1rem"><a href="login.html">Retour à la page de connexion</a></p>
+    </section>
+  </main>
+
+  <script>
+    // clear auth token and redirect to login
+    try{ localStorage.removeItem('royaltime_auth'); }catch(e){}
+    setTimeout(()=>{ location.href = 'login.html'; }, 1100);
+  </script>
+</body>
+</html>

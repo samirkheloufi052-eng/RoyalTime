@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Paiement — RoyalTime</title>
+	<link rel="stylesheet" href="../home-page/style.css">
+	<link rel="stylesheet" href="paiment.css">
+</head>
+<body>
+	<main class="payment container">
+		<section class="payment-card">
+			<div class="card-visual">
+				<div class="chip"></div>
+				<div class="card-number" id="displayNumber">•••• •••• •••• ••••</div>
+				<div class="card-row">
+					<div class="card-name" id="displayName">NOM SUR LA CARTE</div>
+					<div class="card-expiry" id="displayExpiry">MM/AA</div>
+				</div>
+			</div>
+			<div class="summary">
+				<div class="amount-label">Montant</div>
+				<div class="amount" id="amountTotal">€0</div>
+			</div>
+			<!-- Debug: affiche le contenu du panier pour diagnostiquer -->
+			<pre id="cartDebug" style="background:#fafafa;border:1px solid #e2e2e2;padding:10px;margin-top:0.75rem;white-space:pre-wrap;font-size:.95rem;color:#111">Chargement du debug...</pre>
+		</section>
+
+		<section class="payment-form">
+			<h2>Informations de paiement</h2>
+			<form id="paymentForm" novalidate>
+				<div class="row">
+					<label for="cardName">Nom sur la carte</label>
+					<input id="cardName" name="cardName" type="text" placeholder="Jean Dupont" required>
+					<small class="error" id="errName"></small>
+				</div>
+
+				<div class="row">
+					<label for="cardNumber">Numéro de carte</label>
+					<input id="cardNumber" name="cardNumber" inputmode="numeric" autocomplete="cc-number" maxlength="23" placeholder="•••• •••• •••• ••••" required>
+					<small class="error" id="errNumber"></small>
+				</div>
+
+				<div class="row split">
+					<div>
+						<label for="expiry">Expiration (MM/AA)</label>
+						<input id="expiry" name="expiry" inputmode="numeric" maxlength="5" placeholder="MM/AA" required>
+						<small class="error" id="errExpiry"></small>
+					</div>
+					<div>
+						<label for="cvv">CVV</label>
+						<input id="cvv" name="cvv" inputmode="numeric" maxlength="4" placeholder="123" required>
+						<small class="error" id="errCvv"></small>
+					</div>
+				</div>
+
+				<div class="row">
+					<label for="email">Email</label>
+					<input id="email" name="email" type="email" placeholder="jean@example.com" required>
+					<small class="error" id="errEmail"></small>
+				</div>
+
+				<div class="row">
+					<label for="phone">Téléphone</label>
+					<input id="phone" name="phone" inputmode="tel" placeholder="+33 6 12 34 56 78">
+					<small class="error" id="errPhone"></small>
+				</div>
+
+				<div class="row">
+					<label for="address">Adresse de facturation</label>
+					<input id="address" name="address" placeholder="1 Rue de la Paix, Paris">
+				</div>
+
+				<div class="row actions">
+					<button type="submit" class="btn-primary" id="payBtn">Payer €0</button>
+					<button type="button" class="btn-secondary" id="btnCancel">Annuler</button>
+				</div>
+			</form>
+
+			<div id="success" class="success" hidden>
+				<h3>Paiement réussi</h3>
+				<p>Merci — votre paiement a été autorisé.</p>
+			</div>
+		</section>
+	</main>
+
+	<script src="paiment.js"></script>
+	<script src="../javascript/main.js"></script>
+</body>
+</html>
+
