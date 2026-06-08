@@ -187,7 +187,7 @@ function buildFicheUrl(p) {
   const parts = window.location.pathname.replace(/^\//, "").split("/").filter(Boolean);
   const levelsUp = Math.max(0, parts.length - 1); // nb de dossiers au-dessus du fichier
   const prefix = levelsUp > 0 ? "../".repeat(levelsUp) : "";
-  return prefix + "fiche/fiche.html?id=" + encodeURIComponent(p.id);
+ return "/code/fiche/fiche.html?id=" + encodeURIComponent(p.id);
 }
 
 // =============================================================
