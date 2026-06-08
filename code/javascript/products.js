@@ -1,6 +1,6 @@
 // =============================================================
 // ROYALTIME — products.js
-// Placé dans : /javascripte/products.js
+// Placé dans : /javascript/products.js
 // =============================================================
 
 const ROYALTIME_PRODUCTS = [
@@ -182,12 +182,20 @@ function formatPrice(price, currency) {
 // Calcule le bon chemin relatif vers /fiche/fiche.html
 // =============================================================
 function buildFicheUrl(p) {
-  // pathname ex: /home-page/index.html  → parts = ["home-page","index.html"]
-  // On remonte d'autant de niveaux que de dossiers, puis on va dans /fiche/
-  const parts = window.location.pathname.replace(/^\//, "").split("/").filter(Boolean);
-  const levelsUp = Math.max(0, parts.length - 1); // nb de dossiers au-dessus du fichier
-  const prefix = levelsUp > 0 ? "../".repeat(levelsUp) : "";
- return "/code/fiche/fiche.html?id=" + encodeURIComponent(p.id);
+  // Déterminer le chemin de base en fonction de l'origine
+  // Sur GitHub Pages : /RoyalTime/code/fiche/fiche.html
+  // En local : /code/fiche/fiche.html ou relativement
+  const pathname = window.location.pathname;
+  
+  // Déterminer si on est sur GitHub Pages ou en local
+  let basePath = "";
+  
+  // Si le chemin contient "/RoyalTime/", on est sur GitHub Pages
+  if (pathname.includes("/RoyalTime/")) {
+    basePath = "/RoyalTime";
+  }
+  
+  return basePath + "/code/fiche/fiche.html?id=" + encodeURIComponent(p.id);
 }
 
 // =============================================================
@@ -207,7 +215,7 @@ function renderCategoryGrid(categoryId) {
       a.innerHTML = `
         <div class="montre" style="position:relative;">
           <div class="montre-media" style="position:relative;display:block">
-            <img src="${p.image}" alt="${p.title}" loading="lazy" onerror="this.onerror=null; this.src='/image/logo.png'; console.warn('Image failed:', '${p.image}');">
+            <img src="${p.image}" alt="${p.title}" loading="lazy" onerror="this.onerror=null; this.src='../image/logo.png'; console.warn('Image failed:', '${p.image}');">
             <div class="hotspot" data-id="${p.id}" data-price="${p.price}" data-title="${p.title}">
               <div class="hotspot-inner">
                 <div class="hotspot-price">${formatPrice(p.price, p.currency)}</div>
@@ -239,7 +247,7 @@ function renderSearchResults(query) {
     const card = document.createElement("div");
     card.className = "card";
       card.innerHTML = `
-        <img src="${p.image}" alt="${p.title}" onerror="this.onerror=null; this.src='/image/logo.png'; console.warn('Image failed:', '${p.image}');">
+        <img src="${p.image}" alt="${p.title}" onerror="this.onerror=null; this.src='../image/logo.png'; console.warn('Image failed:', '${p.image}');">
       <h3>${p.title}</h3>
       <p>${p.category.charAt(0).toUpperCase() + p.category.slice(1)}</p>
       <span class="price">${formatPrice(p.price, p.currency)}</span>
@@ -261,7 +269,7 @@ function createProductCardElement(p) {
   card.className = "card product-card";
     card.innerHTML = `
       <div class="card-media" style="position:relative">
-        <img src="${p.image}" alt="${p.title}" loading="lazy" onerror="this.onerror=null; this.src='/image/logo.png'; console.warn('Image failed:', '${p.image}');">
+        <img src="${p.image}" alt="${p.title}" loading="lazy" onerror="this.onerror=null; this.src='../image/logo.png'; console.warn('Image failed:', '${p.image}');">
         <div class="hotspot" data-id="${p.id}" data-price="${p.price}" data-title="${p.title}">
           <div class="hotspot-inner">
             <div class="hotspot-price">${formatPrice(p.price, p.currency)}</div>
