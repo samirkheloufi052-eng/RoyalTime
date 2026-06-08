@@ -76,59 +76,31 @@ Le site permet de :
 ----------------------------------------------------
   STRUCTURE DES FICHIERS
 ----------------------------------------------------
+       index.html  → redirection vers la page d'acceuille
+  code/
+    
+  index.html → Page d'acceuille
+    categorie2.html   → Catalogue & filtrage par catégorie
+    fiche.html        → Fiche produit détaillée
+    barre.html        → Recherche de montres
+    contact.html      → Formulaire de contact
+    login.html        → Connexion utilisateur
+    signup.html       → Inscription utilisateur
+    wishlist.html     → Liste de souhaits
+    panier.html       → Panier d'achat
+    paiment.html      → Page de paiement
 
-RoyalTime/
-├── index.html
-├── readme.txt
-├── content/
-│   ├── categorie2.html
-│   ├── fiche.html
-│   ├── barre.html
-│   ├── contact.html
-│   ├── login.html
-│   ├── signup.html
-│   ├── logout.html
-│   ├── wishlist.html
-│   ├── panier.html
-│   └── paiment.html
-├── style/
-│   ├── style.css
-│   ├── categorie.css
-│   ├── fiche.css
-│   ├── barre.css
-│   ├── contact.css
-│   ├── login.css
-│   ├── signup.css
-│   ├── wishlist.css
-│   ├── panier.css
-│   └── paiment.css
-├── javascript/
-│   ├── main.js         ← session auth + badges globaux
-│   ├── products.js     ← données produits + rendu DOM
-│   ├── scripte.js      ← carousels + interactions homepage
-│   ├── categoriejs.js  ← filtrage catégories
-│   ├── fiche.js        ← galerie + détails produit
-│   ├── barrejs.js      ← recherche
-│   ├── panier.js       ← gestion panier localStorage
-│   ├── wishlist.js     ← gestion wishlist localStorage
-│   ├── paiment.js      ← validation formulaire paiement
-│   ├── login.js        ← authentification
-│   └── signup.js       ← inscription
-└── images/
-    └── (toutes les images du site)
 
 ----------------------------------------------------
   MEMBRES DU GROUPE
-----------------------------------------------------
 
-  [Prénom1 NOM1]
-  [Prénom2 NOM2]
-  [Prénom3 NOM3]
-  [Prénom4 NOM4]
-  [Prénom5 NOM5]
+
+  Samir Kheloufi
+  Anais Haddad 
+  fabia TAMDJIAT
 
   Module    : Développement Web
   Année     : 2025 – 2026
   Université: UMMTO — Faculté des Sciences et du Génie
 
-====================================================
+
