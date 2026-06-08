@@ -182,20 +182,22 @@ function formatPrice(price, currency) {
 // Calcule le bon chemin relatif vers /fiche/fiche.html
 // =============================================================
 function buildFicheUrl(p) {
-  // Déterminer le chemin de base en fonction de l'origine
-  // Sur GitHub Pages : /RoyalTime/code/fiche/fiche.html
-  // En local : /code/fiche/fiche.html ou relativement
   const pathname = window.location.pathname;
-  
-  // Déterminer si on est sur GitHub Pages ou en local
-  let basePath = "";
-  
-  // Si le chemin contient "/RoyalTime/", on est sur GitHub Pages
-  if (pathname.includes("/RoyalTime/")) {
-    basePath = "/RoyalTime/";
+
+  // Trouver la racine du projet (avant "code/")
+  // Fonctionne en local ET sur GitHub Pages
+  const codeIndex = pathname.indexOf("/code/");
+
+  let base;
+  if (codeIndex !== -1) {
+    // On remonte jusqu'à la racine puis on pointe vers fiche
+    base = pathname.substring(0, codeIndex) + "/code/fiche/fiche.html";
+  } else {
+    // Fallback : chemin absolu depuis la racine
+    base = "/code/fiche/fiche.html";
   }
-  
-  return basePath + "code/fiche/fiche.html?id=" + encodeURIComponent(p.id);
+
+  return base + "?id=" + encodeURIComponent(p.id);
 }
 
 // =============================================================
