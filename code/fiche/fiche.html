@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'sha256-ieoeWczDHkReVBsRBqaal5AFMlBtNjMzgwKvLqi/tSU=' 'sha256-v1KqJB4A8TXcv4z7p0eFbBcZJ4xN1hKXFVUfLUFmE8=' 'sha256-lI7kqTaE2A5pM0O6bbjyGLPhsK+Xq7WPh8m8tz7ZhGA=' 'sha256-0rEpHddlSKZjqD6F8fHmBSLPG8BXHShBzVc2Wx5GVQA='; img-src 'self' data: https://fonts.gstatic.com https://fonts.googleapis.com; font-src https://fonts.gstatic.com https://fonts.googleapis.com; connect-src 'self'; frame-ancestors 'none'; base-uri 'self';">
   <title>Fiche produit — RoyalTime</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,7 +52,7 @@
       .btn-hot{background:var(--gold);color:var(--navy);border:none;padding:.4rem .6rem;border-radius:8px;cursor:pointer;font-weight:700}
 
       .fiche-info{display:flex;flex-direction:column;gap:.9rem}
-      .fiche-badge{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--navy);font-size:.78rem;font-weight:700;padding:.25rem .6rem;border-radius:999px}
+      .fiche-badge{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--navy);font-size:.78rem;font-weight:700;padding:.25rem .6rem;border-radius:999px;width:fit-content}
       .fiche-title{font-family:'Playfair Display',serif;font-size:1.4rem;margin:0}
       .fiche-price{font-size:1.25rem;font-weight:700;color:var(--gold)}
       .fiche-description{font-size:.98rem;line-height:1.6;color:#374151}
@@ -283,7 +284,7 @@
 <script src="fiche.js"></script>
 <script src="../javascript/main.js"></script>
 
-<script>
+<script id="fiche-hotspot-script">
   // Hotspot + modal wiring for fiche page
   document.addEventListener('DOMContentLoaded', function(){
     const hotspot = document.getElementById('ficheHotspot');
@@ -341,7 +342,7 @@
 
   });
 </script>
-<script>
+<script id="year-script">
   document.addEventListener("DOMContentLoaded", function(){
     const y = document.getElementById("year");
     if (y) y.textContent = new Date().getFullYear();
