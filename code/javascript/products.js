@@ -192,10 +192,10 @@ function buildFicheUrl(p) {
   
   // Si le chemin contient "/RoyalTime/", on est sur GitHub Pages
   if (pathname.includes("/RoyalTime/")) {
-    basePath = "/RoyalTime";
+    basePath = "/RoyalTime/";
   }
   
-  return basePath + "/code/fiche/fiche.html?id=" + encodeURIComponent(p.id);
+  return basePath + "code/fiche/fiche.html?id=" + encodeURIComponent(p.id);
 }
 
 // =============================================================
